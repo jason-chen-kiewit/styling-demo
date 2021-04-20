@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { Button } from "./style";
 import { icons } from "./icons";
+// import StyledIcon from "./StyledIcon/StyledIcon";
 
 const StyledButton = ({
   // see App.js for prop descriptions
   children,
   onClick,
-  theme,
+  variant,
+  color,
   text,
   iconName,
   iconPosition,
@@ -35,7 +37,7 @@ const StyledButton = ({
     setIsActive(!isActive);
 
     // Switches Icon from FILL to OUTLINE, works specifically for AntD Icons
-    if (theme.includes("skeleton")) {
+    if (variant === "minimal" && iconName) {
       if (curIcon.includes("Fill")) {
         newIcon = iconName.replace("Fill", "Outline");
       }
@@ -72,7 +74,8 @@ const StyledButton = ({
       type={submit ? "submit" : "button"}
       isActive={isActive}
       onClick={handleClick}
-      theme={theme}
+      variant={variant}
+      color={color}
       round={round}
       iconPosition={iconPosition}
     >
