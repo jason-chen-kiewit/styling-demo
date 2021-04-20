@@ -82,15 +82,15 @@ const StyledButton = ({
       iconPosition={iconPosition}
     >
       {(iconPosition === "top" || iconPosition === "left") && (
-        <StyledIcon iconName={iconName} iconPosition={iconPosition} />
+        <StyledIcon iconName={curIcon} iconPosition={iconPosition} />
       )}
       {text && text}
       {iconPosition === "center" && (
-        <StyledIcon iconName={iconName} iconPosition={iconPosition} />
+        <StyledIcon iconName={curIcon} iconPosition={iconPosition} />
       )}
       {children}
       {(iconPosition === "bottom" || iconPosition === "right") && (
-        <StyledIcon iconName={iconName} iconPosition={iconPosition} />
+        <StyledIcon iconName={curIcon} iconPosition={iconPosition} />
       )}
     </Button>
   );
