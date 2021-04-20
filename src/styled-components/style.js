@@ -2,11 +2,9 @@ import styled, { css } from 'styled-components';
 import colors from '../styled-components/colors';
 
 export const Button = styled.button(({isActive, variant, color, round, iconPosition }) => { // https://styled-components.com/docs/basics#styling-any-component
-    
     const mainColor = colors[color];
     const { neutral } = colors;
     const active = isActive ? "active" : "inactive";
-    console.log(mainColor);
     
     // const solid = {
     //     active: {
@@ -70,7 +68,7 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
             bg: neutral[1],
             hoverText: mainColor[index + 2],
             hoverBg: neutral[1],
-            border: "none"
+            border: "1px"
         };
 
         if (isActive) {

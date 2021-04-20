@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { Button } from "./style";
 import { icons } from "./icons";
-// import StyledIcon from "./StyledIcon/StyledIcon";
+import StyledIcon from "./StyledIcon/StyledIcon";
 
 const StyledButton = ({
   // see App.js for prop descriptions
@@ -11,6 +11,8 @@ const StyledButton = ({
   variant,
   color,
   text,
+  startIcon,
+  endIcon,
   iconName,
   iconPosition,
   activatable,
@@ -79,11 +81,17 @@ const StyledButton = ({
       round={round}
       iconPosition={iconPosition}
     >
-      {(iconPosition === "top" || iconPosition === "left") && <Icon />}
+      {(iconPosition === "top" || iconPosition === "left") && (
+        <StyledIcon iconName={iconName} iconPosition={iconPosition} />
+      )}
       {text && text}
-      {iconPosition === "center" && <Icon />}
+      {iconPosition === "center" && (
+        <StyledIcon iconName={iconName} iconPosition={iconPosition} />
+      )}
       {children}
-      {(iconPosition === "bottom" || iconPosition === "right") && <Icon />}
+      {(iconPosition === "bottom" || iconPosition === "right") && (
+        <StyledIcon iconName={iconName} iconPosition={iconPosition} />
+      )}
     </Button>
   );
 };
