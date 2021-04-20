@@ -66,13 +66,13 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
         let minimalStyle = {
             text: mainColor[index],
             bg: neutral[1],
-            hoverText: mainColor[index + 2],
-            hoverBg: neutral[1],
+            hoverText: mainColor[index],
+            hoverBg: mainColor[index - 3],
             border: "1px"
         };
 
         if (isActive) {
-            minimalStyle.text = mainColor[index + 2];
+            minimalStyle.bg = mainColor[index - 3];
         }
 
         return minimalStyle;
