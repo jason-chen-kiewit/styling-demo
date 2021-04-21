@@ -12,7 +12,6 @@ const StyledButton = ({
   startIcon,
   endIcon,
   iconOnly,
-  column,
   activatable,
   round,
   submit,
@@ -37,7 +36,6 @@ const StyledButton = ({
       color={color}
       round={round}
       size={size}
-      column={column}
       text={text}
       startIcon={startIcon}
       endIcon={endIcon}
