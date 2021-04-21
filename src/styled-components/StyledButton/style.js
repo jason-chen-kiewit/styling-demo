@@ -62,7 +62,7 @@ export const Button = styled.button(({
         return minimalStyle;
     }
 
-    const variants = { contained, outlined, minimal };
+    const variantStyleGenerators = { contained, outlined, minimal };
 
     const sizes = {
         small: {
@@ -80,7 +80,7 @@ export const Button = styled.button(({
     };
 
     const { height, fontSize } = sizes[size];
-    const { text, bg, border, hoverText, hoverBg } = variants[variant]();
+    const { text, bg, border, hoverText, hoverBg } = variantStyleGenerators[variant]();
 
     // Wrapping a css property in a ternary should be avoided
     // harder to read and typically not DRY
