@@ -86,10 +86,13 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
     const { text, bg, border, hoverText, hoverBg } = variants[variant]();
     return css` // https://styled-components.com/docs/api#css
         display: flex;
-        flex-direction: ${iconPosition === "top" || iconPosition === "bottom" ? "column" : "row"};
+        flex-direction: ${column ? "column" : "row"};
         justify-content: center;
         align-items: center;
         padding: ${round ? 0 : "0.25rem 1rem"};
+        ${column && css`
+            padding: 0.5rem; 
+        `}
 
         flex: none;
         order: 2;

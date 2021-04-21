@@ -11,6 +11,8 @@ const StyledButton = ({
   text,
   startIcon,
   endIcon,
+  iconOnly,
+  column,
   iconName,
   iconPosition,
   activatable,
@@ -24,7 +26,7 @@ const StyledButton = ({
   // takes this string value to dynamically render the icon so long as that icon
   // is exported from icons.js
   // https://stackoverflow.com/questions/53572640/dynamically-load-react-icons-into-component
-  const [curIcon, setCurIcon] = useState(iconName);
+  const [curIcon, setCurIcon] = useState(startIcon || endIcon || iconOnly);
 
   const handleClick = (e) => {
     // Bundles the custom click effect with generic click effect
@@ -39,10 +41,10 @@ const StyledButton = ({
     // Switches Icon from FILL to OUTLINE, works specifically for AntD Icons
     if (variant === "minimal" && iconName) {
       if (curIcon.includes("Fill")) {
-        newIcon = iconName.replace("Fill", "Outline");
+        newIcon = curIcon.replace("Fill", "Outline");
       }
       if (curIcon.includes("Outline")) {
-        newIcon = iconName.replace("Outline", "Fill");
+        newIcon = curIcon.replace("Outline", "Fill");
       }
 
       setCurIcon(newIcon);
@@ -58,18 +60,14 @@ const StyledButton = ({
       color={color}
       round={round}
       iconPosition={iconPosition}
+      column={column}
+      text={text}
     >
-      {(iconPosition === "top" || iconPosition === "left") && (
-        <StyledIcon iconName={curIcon} iconPosition={iconPosition} />
-      )}
+      {startIcon && <StyledIcon icon={curIcon} column={column} startIcon />}
       {text && text}
-      {iconPosition === "center" && (
-        <StyledIcon iconName={curIcon} iconPosition={iconPosition} />
-      )}
+      {iconOnly && <StyledIcon icon={curIcon} column={column} iconOnly />}
       {children}
-      {(iconPosition === "bottom" || iconPosition === "right") && (
-        <StyledIcon iconName={curIcon} iconPosition={iconPosition} />
-      )}
+      {endIcon && <StyledIcon icon={curIcon} column={column} endIcon />}
     </Button>
   );
 };

@@ -51,16 +51,14 @@ function App() {
           activatable
           variant="contained"
           color="blue"
-          iconName="AiFillEdit"
-          iconPosition="right"
+          endIcon="AiFillEdit"
           text="Blue"
         />
         <StyledButton
           activatable
           variant="contained"
           color="red"
-          iconName="AiFillFilter"
-          iconPosition="left"
+          startIcon="AiFillFilter"
           text="Red"
         />
         <StyledButton
@@ -68,23 +66,22 @@ function App() {
           variant="contained"
           color="green"
           round
-          iconName="AiFillFilter"
-          iconPosition="center"
+          iconOnly="AiFillFilter"
         />
         <StyledButton
           activatable
           variant="contained"
           color="orange"
-          iconName="AiFillFilter"
-          iconPosition="top"
+          startIcon="AiFillFilter"
+          column
           text="Bulk Edit"
         />
         <StyledButton
           activatable
           variant="contained"
           color="purple"
-          iconName="AiFillFilter"
-          iconPosition="bottom"
+          endIcon="AiFillFilter"
+          column
           text="Bulk Filter"
         />
       </div>
@@ -100,16 +97,14 @@ function App() {
           activatable
           variant="outlined"
           color="blue"
-          iconName="AiFillEdit"
-          iconPosition="right"
+          endIcon="AiFillEdit"
           text="Blue"
         />
         <StyledButton
           activatable
           variant="outlined"
           color="red"
-          iconName="AiFillFilter"
-          iconPosition="left"
+          startIcon="AiFillFilter"
           text="Red"
         />
         <StyledButton
@@ -117,23 +112,22 @@ function App() {
           variant="outlined"
           color="green"
           round
-          iconName="AiFillFilter"
-          iconPosition="center"
+          iconOnly="AiFillFilter"
         />
         <StyledButton
           activatable
           variant="outlined"
           color="orange"
-          iconName="AiFillFilter"
-          iconPosition="top"
+          startIcon="AiFillFilter"
+          column
           text="Bulk Edit"
         />
         <StyledButton
           activatable
           variant="outlined"
           color="purple"
-          iconName="AiFillFilter"
-          iconPosition="bottom"
+          endIcon="AiFillFilter"
+          column
           text="Bulk Filter"
         />
       </div>
@@ -150,39 +144,36 @@ function App() {
           variant="minimal"
           color="red"
           text="Red"
-          iconName="AiOutlineRight"
-          iconPosition="right"
+          endIcon="AiOutlineRight"
         />
         <StyledButton
           activatable
           variant="minimal"
           color="blue"
           text="Blue"
-          iconName="AiOutlineLeft"
-          iconPosition="left"
+          startIcon="AiOutlineLeft"
         />
         <StyledButton
           activatable
           variant="minimal"
           color="green"
           round
-          iconName="AiFillFilter"
-          iconPosition="center"
+          iconOnly="AiFillFilter"
         />
         <StyledButton
           activatable
           variant="minimal"
           color="orange"
-          iconName="AiFillFilter"
-          iconPosition="top"
+          startIcon="AiFillFilter"
+          column
           text="Bulk Edit"
         />
         <StyledButton
           activatable
           variant="minimal"
           color="purple"
-          iconName="AiFillFilter"
-          iconPosition="bottom"
+          endIcon="AiFillFilter"
+          column
           text="Bulk Filter"
         />
       </div>
