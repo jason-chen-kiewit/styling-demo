@@ -36,7 +36,6 @@ const StyledButton = ({
       color={color}
       round={round}
       size={size}
-      text={text}
       startIcon={startIcon}
       endIcon={endIcon}
       iconOnly={iconOnly}
