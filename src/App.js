@@ -166,7 +166,7 @@ function App() {
           color="orange"
           startIcon="AiFillFilter"
           column
-          text="Bulk Edit"
+          text="Bulk Filter"
         />
         <StyledButton
           activatable
@@ -177,6 +177,15 @@ function App() {
           text="Bulk Filter"
         />
       </div>
+      {/* <StyledButton
+          activatable
+          variant="contained"
+          color="purple"
+          iconOnly="AiFillFilter"
+          round
+          column
+          text="Bulk Filter"
+        /> */}
     </div>
   );
 }

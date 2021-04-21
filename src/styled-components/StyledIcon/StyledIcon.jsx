@@ -14,7 +14,7 @@ class StyledIcon extends React.Component {
   }
 
   render() {
-    const padding = "20px";
+    const padding = "0.5rem";
     const Icon = styled(this.IconComponent)`
       padding-right: ${this.startIcon ? padding : 0};
       padding-left: ${this.endIcon ? padding : 0};
@@ -26,9 +26,7 @@ class StyledIcon extends React.Component {
       `}
       ${this.column &&
       css`
-        padding: 0rem;
-        ${this.startIcon && "padding-bottom: 0.25rem;"}
-        ${this.endIcon && "padding-top: 0.25rem;"}
+        padding: ${this.endIcon && "0.25rem"} 0 ${this.startIcon && "0.25rem"} 0;
         height: 1.5rem;
         width: 1.5rem;
       `}

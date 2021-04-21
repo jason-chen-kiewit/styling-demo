@@ -66,6 +66,7 @@ const StyledButton = ({
       {startIcon && <StyledIcon icon={curIcon} column={column} startIcon />}
       {text && text}
       {iconOnly && <StyledIcon icon={curIcon} column={column} iconOnly />}
+      {iconOnly && text && "y u do dis? ლ(ಠ益ಠლ)"}
       {children}
       {endIcon && <StyledIcon icon={curIcon} column={column} endIcon />}
     </Button>
