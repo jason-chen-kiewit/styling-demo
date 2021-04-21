@@ -75,6 +75,7 @@ function App() {
           startIcon="AiFillFilter"
           column
           text="Bulk Edit"
+          size="small"
         />
         <StyledButton
           activatable
@@ -83,6 +84,7 @@ function App() {
           endIcon="AiFillFilter"
           column
           text="Bulk Filter"
+          size="large"
         />
       </div>
       <div className="container outlined">

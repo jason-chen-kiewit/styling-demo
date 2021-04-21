@@ -1,27 +1,9 @@
 import styled, { css } from 'styled-components';
 import colors from '../styled-components/colors';
 
-export const Button = styled.button(({isActive, variant, color, round, iconPosition, column }) => { // https://styled-components.com/docs/basics#styling-any-component
+export const Button = styled.button(({isActive, variant, color, round, size, column }) => { // https://styled-components.com/docs/basics#styling-any-component
     const mainColor = colors[color];
     const { neutral } = colors;
-    // const active = isActive ? "active" : "inactive";
-    
-    // const contained = {
-    //     active: {
-    //         text: neutral[1],
-    //         bg: mainColor[7],
-    //         hoverText: neutral[1],
-    //         hoverBg: mainColor[7],
-    //         border: "none"
-    //     },
-    //     inactive: {
-    //         text: neutral[1],
-    //         bg: mainColor[5],
-    //         hoverText: neutral[1],
-    //         hoverBg: mainColor[7],
-    //         border: "none"
-    //     }
-    // };
 
     const contained = () => {
         const index = color === "neutral" ? 11 : 5;
@@ -82,7 +64,22 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
 
     const variants = { contained, outlined, minimal };
 
-    
+    const sizes = {
+        small: {
+            height: "2rem",
+            fontSize: "0.875rem"
+        },
+        medium: {
+            height: "2.25rem",
+            fontSize: "1rem"
+        },
+        large: {
+            height: "2.5rem",
+            fontSize: "1.25rem"
+        },
+    };
+
+    const {height, fontSize} = sizes[size];
     const { text, bg, border, hoverText, hoverBg } = variants[variant]();
     return css` // https://styled-components.com/docs/api#css
         display: flex;
@@ -105,6 +102,9 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
         color: ${text};
         background: ${bg};
         border: ${border};
+
+        height: ${height};
+        font-size: ${fontSize};
 
         &:hover {
             cursor: pointer;

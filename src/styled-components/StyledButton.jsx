@@ -6,18 +6,17 @@ const StyledButton = ({
   // see App.js for prop descriptions
   children,
   onClick,
-  variant,
+  variant = "contained",
   color,
   text,
   startIcon,
   endIcon,
   iconOnly,
   column,
-  // iconName,
-  // iconPosition,
   activatable,
   round,
   submit,
+  size = "medium",
 }) => {
   // isActive is only tracked if activatabale is true, otherwise it stays false
   const [isActive, setIsActive] = useState(false);
@@ -59,7 +58,7 @@ const StyledButton = ({
       variant={variant}
       color={color}
       round={round}
-      // iconPosition={iconPosition}
+      size={size}
       column={column}
       text={text}
     >
