@@ -1,48 +1,31 @@
 import styled, { css } from 'styled-components';
-import colors from '../styled-components/colors';
+import colors from '../colors';
 
-export const Button = styled.button(({isActive, variant, color, round, iconPosition, column }) => { // https://styled-components.com/docs/basics#styling-any-component
+export const Button = styled.button(({
+    isActive, variant, color, round, size, startIcon, endIcon, iconOnly 
+}) => { // https://styled-components.com/docs/basics#styling-any-component
     const mainColor = colors[color];
     const { neutral } = colors;
-    // const active = isActive ? "active" : "inactive";
-    
-    // const contained = {
-    //     active: {
-    //         text: neutral[1],
-    //         bg: mainColor[7],
-    //         hoverText: neutral[1],
-    //         hoverBg: mainColor[7],
-    //         border: "none"
-    //     },
-    //     inactive: {
-    //         text: neutral[1],
-    //         bg: mainColor[5],
-    //         hoverText: neutral[1],
-    //         hoverBg: mainColor[7],
-    //         border: "none"
-    //     }
-    // };
+    const shadeIndex = color === "neutral" ? 11 : 5;
 
     const contained = () => {
-        const index = color === "neutral" ? 11 : 5;
         let containedStyle = {
             text: neutral[1],
-            bg: mainColor[index],
+            bg: mainColor[shadeIndex],
             hoverText: neutral[1],
-            hoverBg: mainColor[index + 2],
+            hoverBg: mainColor[shadeIndex + 2],
             border: "none"
         };
 
         if (isActive) {
-            containedStyle.bg = mainColor[index + 2];
+            containedStyle.bg = mainColor[shadeIndex + 2];
         }
 
         return containedStyle;
     }
 
-
+    // Consider using a function using the same ternary statement repeatedly
     const outlined = () => {
-        const index = color === "neutral" ? 11 : 5;
         let outlinedStyle = {
             text: neutral[12],
             bg: neutral[5],
@@ -52,11 +35,11 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
         }
         
         if (isActive) {
-            outlinedStyle.text = mainColor[index];
+            outlinedStyle.text = mainColor[shadeIndex];
             outlinedStyle.bg = mainColor[1];
-            outlinedStyle.hoverText = mainColor[index];
-            outlinedStyle.hoverBg = mainColor[index - 2];
-            outlinedStyle.border = `1px solid ${mainColor[index]}`
+            outlinedStyle.hoverText = mainColor[shadeIndex];
+            outlinedStyle.hoverBg = mainColor[shadeIndex - 2];
+            outlinedStyle.border = `1px solid ${mainColor[shadeIndex]}`
         }
 
         return outlinedStyle;
@@ -64,29 +47,46 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
 
 
     const minimal = () => {
-        const index = color === "neutral" ? 11 : 5;
         let minimalStyle = {
-            text: mainColor[index],
+            text: mainColor[shadeIndex],
             bg: neutral[1],
-            hoverText: mainColor[index],
-            hoverBg: mainColor[index - 3],
+            hoverText: mainColor[shadeIndex],
+            hoverBg: mainColor[shadeIndex - 3],
             border: "1px"
         };
 
         if (isActive) {
-            minimalStyle.bg = mainColor[index - 3];
+            minimalStyle.bg = mainColor[shadeIndex - 3];
         }
 
         return minimalStyle;
     }
 
-    const variants = { contained, outlined, minimal };
+    const variantStyleGenerators = { contained, outlined, minimal };
 
-    
-    const { text, bg, border, hoverText, hoverBg } = variants[variant]();
+    const sizes = {
+        small: {
+            height: "2rem",
+            fontSize: "0.875rem"
+        },
+        medium: {
+            height: "2.25rem",
+            fontSize: "1rem"
+        },
+        large: {
+            height: "2.5rem",
+            fontSize: "1.25rem"
+        },
+    };
+
+    const { height, fontSize } = sizes[size];
+    const { text, bg, border, hoverText, hoverBg } = variantStyleGenerators[variant]();
+
+    // Wrapping a css property in a ternary should be avoided
+    // harder to read and typically not DRY
+    // AVOID: ${boolProp && "border-radius: 5px"}
     return css` // https://styled-components.com/docs/api#css
         display: flex;
-        flex-direction: ${iconPosition === "top" || iconPosition === "bottom" ? "column" : "row"};
         justify-content: center;
         align-items: center;
         padding: ${round ? 0 : "0.25rem 1rem"};
@@ -95,21 +95,33 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
         order: 2;
         flex-grow: 0;
         margin: 0 0.5rem;
-        border-radius: ${round ? "50%" : "5px"};
 
-        font-size: 1rem;
+        border-radius: ${round ? "50%" : "5px"};
 
         color: ${text};
         background: ${bg};
         border: ${border};
+
+        height: ${height};
+        width: ${iconOnly ? height : "auto"};
+        font-size: ${fontSize};
 
         &:hover {
             cursor: pointer;
             color: ${hoverText}; 
             background: ${hoverBg};
         }
+
+        // targets specifically react-icons
+        svg {
+            margin-right: ${startIcon ? "0.5rem" : 0};
+            margin-left: ${endIcon ? "0.5rem" : 0};
+        }
+        
     `
 });
+
+
 
 // ======================================
 // OLD VERSIONS
