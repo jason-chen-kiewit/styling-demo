@@ -4,9 +4,9 @@ import colors from '../styled-components/colors';
 export const Button = styled.button(({isActive, variant, color, round, iconPosition }) => { // https://styled-components.com/docs/basics#styling-any-component
     const mainColor = colors[color];
     const { neutral } = colors;
-    const active = isActive ? "active" : "inactive";
+    // const active = isActive ? "active" : "inactive";
     
-    // const solid = {
+    // const contained = {
     //     active: {
     //         text: neutral[1],
     //         bg: mainColor[7],
@@ -24,16 +24,17 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
     // };
 
     const contained = () => {
+        const index = color === "neutral" ? 11 : 5;
         let containedStyle = {
             text: neutral[1],
-            bg: mainColor[5],
+            bg: mainColor[index],
             hoverText: neutral[1],
-            hoverBg: mainColor[7],
+            hoverBg: mainColor[index + 2],
             border: "none"
         };
 
         if (isActive) {
-            containedStyle.bg = mainColor[7];
+            containedStyle.bg = mainColor[index + 2];
         }
 
         return containedStyle;
@@ -41,6 +42,7 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
 
 
     const outlined = () => {
+        const index = color === "neutral" ? 11 : 5;
         let outlinedStyle = {
             text: neutral[12],
             bg: neutral[5],
@@ -50,11 +52,11 @@ export const Button = styled.button(({isActive, variant, color, round, iconPosit
         }
         
         if (isActive) {
-            outlinedStyle.text = mainColor[5];
+            outlinedStyle.text = mainColor[index];
             outlinedStyle.bg = mainColor[1];
-            outlinedStyle.hoverText = mainColor[5];
-            outlinedStyle.hoverBg = mainColor[3];
-            outlinedStyle.border = `1px solid ${mainColor[5]}`
+            outlinedStyle.hoverText = mainColor[index];
+            outlinedStyle.hoverBg = mainColor[index - 2];
+            outlinedStyle.border = `1px solid ${mainColor[index]}`
         }
 
         return outlinedStyle;

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const IconWrapper = styled.div(({iconPosition}) => {
-    const padding = "20px";
+    const padding = "0.5rem";
     return css`
         
         svg {
@@ -16,6 +16,7 @@ export const IconWrapper = styled.div(({iconPosition}) => {
                     width: 1.5rem; 
                 `
             }
+            
         }
     `
 });
