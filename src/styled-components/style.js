@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import colors from '../styled-components/colors';
 
-export const Button = styled.button(({isActive, variant, color, round, iconPosition }) => { // https://styled-components.com/docs/basics#styling-any-component
+export const Button = styled.button(({isActive, variant, color, round, iconPosition, column }) => { // https://styled-components.com/docs/basics#styling-any-component
     const mainColor = colors[color];
     const { neutral } = colors;
     // const active = isActive ? "active" : "inactive";
