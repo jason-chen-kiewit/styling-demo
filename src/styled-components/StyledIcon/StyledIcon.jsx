@@ -5,7 +5,6 @@ import { icons } from "../icons";
 class StyledIcon extends React.Component {
   constructor(props) {
     super(props);
-    this.iconPosition = this.props.iconPosition;
     this.IconComponent = icons[this.props.icon];
     this.startIcon = this.props.startIcon;
     this.endIcon = this.props.endIcon;

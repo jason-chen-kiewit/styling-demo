@@ -13,8 +13,8 @@ const StyledButton = ({
   endIcon,
   iconOnly,
   column,
-  iconName,
-  iconPosition,
+  // iconName,
+  // iconPosition,
   activatable,
   round,
   submit,
@@ -26,7 +26,7 @@ const StyledButton = ({
   // takes this string value to dynamically render the icon so long as that icon
   // is exported from icons.js
   // https://stackoverflow.com/questions/53572640/dynamically-load-react-icons-into-component
-  const [curIcon, setCurIcon] = useState(startIcon || endIcon || iconOnly);
+  // const [curIcon, setCurIcon] = useState(startIcon || endIcon || iconOnly);
 
   const handleClick = (e) => {
     // Bundles the custom click effect with generic click effect
@@ -35,20 +35,20 @@ const StyledButton = ({
   };
 
   const toggleIsActive = () => {
-    let newIcon;
+    // let newIcon;
     setIsActive(!isActive);
 
     // Switches Icon from FILL to OUTLINE, works specifically for AntD Icons
-    if (variant === "minimal" && iconName) {
-      if (curIcon.includes("Fill")) {
-        newIcon = curIcon.replace("Fill", "Outline");
-      }
-      if (curIcon.includes("Outline")) {
-        newIcon = curIcon.replace("Outline", "Fill");
-      }
+    // if (variant === "minimal" && iconName) {
+    //   if (curIcon.includes("Fill")) {
+    //     newIcon = curIcon.replace("Fill", "Outline");
+    //   }
+    //   if (curIcon.includes("Outline")) {
+    //     newIcon = curIcon.replace("Outline", "Fill");
+    //   }
 
-      setCurIcon(newIcon);
-    }
+    //   setCurIcon(newIcon);
+    // }
   };
 
   return (
@@ -59,16 +59,16 @@ const StyledButton = ({
       variant={variant}
       color={color}
       round={round}
-      iconPosition={iconPosition}
+      // iconPosition={iconPosition}
       column={column}
       text={text}
     >
-      {startIcon && <StyledIcon icon={curIcon} column={column} startIcon />}
+      {startIcon && <StyledIcon icon={startIcon} column={column} startIcon />}
       {text && text}
-      {iconOnly && <StyledIcon icon={curIcon} column={column} iconOnly />}
+      {iconOnly && <StyledIcon icon={iconOnly} column={column} iconOnly />}
       {iconOnly && text && "y u do dis? ლ(ಠ益ಠლ)"}
       {children}
-      {endIcon && <StyledIcon icon={curIcon} column={column} endIcon />}
+      {endIcon && <StyledIcon icon={endIcon} column={column} endIcon />}
     </Button>
   );
 };
