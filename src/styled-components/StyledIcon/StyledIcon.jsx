@@ -1,28 +1,30 @@
-import { IconWrapper } from "./style";
+import React from "react";
 import styled, { css } from "styled-components";
 import { icons } from "../icons";
 
-const StyledIcon = ({ iconName, iconPosition }) => {
-  //   const Icon = icons[iconName];
-  const padding = "20px";
-  const Icon = styled(icons[iconName])`
-    padding-right: ${iconPosition === "left" ? padding : 0};
-    padding-left: ${iconPosition === "right" ? padding : 0};
-    ${(iconPosition === "center" ||
-      iconPosition === "top" ||
-      iconPosition === "bottom") &&
-    css`
-      padding: 0.5rem;
-      height: 1.5rem;
-      width: 1.5rem;
-    `}
-  `;
-  //   console.log(Icon);
-  return (
-    // <IconWrapper iconPosition={iconPosition}>
-    <Icon />
-    // </IconWrapper>
-  );
-};
+class StyledIcon extends React.Component {
+  constructor(props) {
+    super(props);
+    this.iconPosition = this.props.iconPosition;
+    this.IconComponent = icons[this.props.iconName];
+  }
+
+  render() {
+    const padding = "20px";
+    const Icon = styled(this.IconComponent)`
+      padding-right: ${this.iconPosition === "left" ? padding : 0};
+      padding-left: ${this.iconPosition === "right" ? padding : 0};
+      ${(this.iconPosition === "center" ||
+        this.iconPosition === "top" ||
+        this.iconPosition === "bottom") &&
+      css`
+        padding: 0.5rem;
+        height: 1.5rem;
+        width: 1.5rem;
+      `}
+    `;
+    return <Icon />;
+  }
+}
 
 export default StyledIcon;
