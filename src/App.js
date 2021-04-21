@@ -44,21 +44,29 @@ function App() {
         <StyledButton
           activatable
           variant="contained"
+          color="neutral"
+          text="Neutral"
+        />
+        <StyledButton
+          activatable
+          variant="contained"
           color="blue"
-          text="default"
+          iconName="AiFillEdit"
+          iconPosition="right"
+          text="Blue"
         />
         <StyledButton
           activatable
           variant="contained"
           color="red"
-          iconName="AiFillEdit"
-          iconPosition="right"
-          text="ContainedRed"
+          iconName="AiFillFilter"
+          iconPosition="left"
+          text="Red"
         />
         <StyledButton
           activatable
           variant="contained"
-          color="blue"
+          color="green"
           round
           iconName="AiFillFilter"
           iconPosition="center"
@@ -66,10 +74,18 @@ function App() {
         <StyledButton
           activatable
           variant="contained"
-          color="blue"
+          color="orange"
           iconName="AiFillFilter"
-          iconPosition="left"
-          text="Filter"
+          iconPosition="top"
+          text="Bulk Edit"
+        />
+        <StyledButton
+          activatable
+          variant="contained"
+          color="purple"
+          iconName="AiFillFilter"
+          iconPosition="bottom"
+          text="Bulk Filter"
         />
       </div>
       <div className="container outlined">
@@ -77,24 +93,16 @@ function App() {
         <StyledButton
           activatable
           variant="outlined"
-          color="blue"
-          text="invertedBlue"
+          color="neutral"
+          text="Neutral"
         />
         <StyledButton
           activatable
           variant="outlined"
-          color="red"
+          color="blue"
           iconName="AiFillEdit"
           iconPosition="right"
-          text="invertedRed"
-        />
-        <StyledButton
-          activatable
-          variant="outlined"
-          color="blue"
-          round
-          iconName="AiFillFilter"
-          iconPosition="center"
+          text="Blue"
         />
         <StyledButton
           activatable
@@ -102,7 +110,31 @@ function App() {
           color="red"
           iconName="AiFillFilter"
           iconPosition="left"
-          text="Filter"
+          text="Red"
+        />
+        <StyledButton
+          activatable
+          variant="outlined"
+          color="green"
+          round
+          iconName="AiFillFilter"
+          iconPosition="center"
+        />
+        <StyledButton
+          activatable
+          variant="outlined"
+          color="orange"
+          iconName="AiFillFilter"
+          iconPosition="top"
+          text="Bulk Edit"
+        />
+        <StyledButton
+          activatable
+          variant="outlined"
+          color="purple"
+          iconName="AiFillFilter"
+          iconPosition="bottom"
+          text="Bulk Filter"
         />
       </div>
       <div className="container minimal">
@@ -111,18 +143,28 @@ function App() {
           activatable
           variant="minimal"
           color="neutral"
-          text="skeletonNeutral"
+          text="Neutral"
         />
         <StyledButton
           activatable
           variant="minimal"
           color="red"
-          text="skeletonRed"
+          text="Red"
+          iconName="AiOutlineRight"
+          iconPosition="right"
         />
         <StyledButton
           activatable
           variant="minimal"
-          color="red"
+          color="blue"
+          text="Blue"
+          iconName="AiOutlineLeft"
+          iconPosition="left"
+        />
+        <StyledButton
+          activatable
+          variant="minimal"
+          color="green"
           round
           iconName="AiFillFilter"
           iconPosition="center"
@@ -130,7 +172,7 @@ function App() {
         <StyledButton
           activatable
           variant="minimal"
-          color="neutral"
+          color="orange"
           iconName="AiFillFilter"
           iconPosition="top"
           text="Bulk Edit"
@@ -138,7 +180,7 @@ function App() {
         <StyledButton
           activatable
           variant="minimal"
-          color="red"
+          color="purple"
           iconName="AiFillFilter"
           iconPosition="bottom"
           text="Bulk Filter"

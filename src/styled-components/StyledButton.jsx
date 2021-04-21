@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import styled, { css } from "styled-components";
 import { Button } from "./style";
-import { icons } from "./icons";
-// import StyledIcon from "./StyledIcon/StyledIcon";
+import StyledIcon from "./StyledIcon/StyledIcon";
 
 const StyledButton = ({
   // see App.js for prop descriptions
@@ -11,6 +9,8 @@ const StyledButton = ({
   variant,
   color,
   text,
+  startIcon,
+  endIcon,
   iconName,
   iconPosition,
   activatable,
@@ -49,26 +49,6 @@ const StyledButton = ({
     }
   };
 
-  const Icon =
-    // adds padding depending on the position of the icon specified.
-    // Note: 20px used display more padding more clearly.
-    iconName &&
-    styled(icons[curIcon])`
-      // https://styled-components.com/docs/basics#styling-any-component
-      padding-top: ${iconPosition === "bottom" ? "20px" : 0};
-      padding-right: ${iconPosition === "left" ? "20px" : 0};
-      padding-bottom: ${iconPosition === "top" ? "20px" : 0};
-      padding-left: ${iconPosition === "right" ? "20px" : 0};
-
-      // Standardizes size of icon and overrides above padding when iconPosition is "center"
-      ${iconPosition === "center" &&
-      css`
-        height: 1.5rem; // https://engageinteractive.co.uk/blog/em-vs-rem-vs-px
-        width: 1.5rem;
-        padding: 0.5rem;
-      `}
-    `;
-
   return (
     <Button
       type={submit ? "submit" : "button"}
@@ -79,11 +59,17 @@ const StyledButton = ({
       round={round}
       iconPosition={iconPosition}
     >
-      {(iconPosition === "top" || iconPosition === "left") && <Icon />}
+      {(iconPosition === "top" || iconPosition === "left") && (
+        <StyledIcon iconName={curIcon} iconPosition={iconPosition} />
+      )}
       {text && text}
-      {iconPosition === "center" && <Icon />}
+      {iconPosition === "center" && (
+        <StyledIcon iconName={curIcon} iconPosition={iconPosition} />
+      )}
       {children}
-      {(iconPosition === "bottom" || iconPosition === "right") && <Icon />}
+      {(iconPosition === "bottom" || iconPosition === "right") && (
+        <StyledIcon iconName={curIcon} iconPosition={iconPosition} />
+      )}
     </Button>
   );
 };
