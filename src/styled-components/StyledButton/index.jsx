@@ -7,11 +7,12 @@ const StyledButton = ({
   onClick,
   variant = "contained",
   size = "medium",
-  color,
+  color = "blue",
   text,
   startIcon,
   endIcon,
   iconOnly,
+  disabled,
   activatable,
   round,
   submit,
@@ -39,6 +40,7 @@ const StyledButton = ({
       startIcon={startIcon}
       endIcon={endIcon}
       iconOnly={iconOnly}
+      disabled={disabled}
     >
       {startIcon && <Icon />}
       {text && text}

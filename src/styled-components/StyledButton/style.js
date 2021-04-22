@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import colors from '../colors';
 
 export const Button = styled.button(({
-    isActive, variant, color, round, size, startIcon, endIcon, iconOnly 
+    isActive, variant, color, round, size, startIcon, endIcon, iconOnly, disabled 
 }) => { // https://styled-components.com/docs/basics#styling-any-component
     const mainColor = colors[color];
     const { neutral } = colors;
@@ -19,6 +19,13 @@ export const Button = styled.button(({
 
         if (isActive) {
             containedStyle.bg = mainColor[shadeIndex + 2];
+        }
+
+        if (disabled) {
+            containedStyle.text = neutral[7];
+            containedStyle.bg = neutral[4];
+            containedStyle.hoverText = neutral[7];
+            containedStyle.hoverBg = neutral[4];
         }
 
         return containedStyle;
@@ -39,7 +46,15 @@ export const Button = styled.button(({
             outlinedStyle.bg = mainColor[1];
             outlinedStyle.hoverText = mainColor[shadeIndex];
             outlinedStyle.hoverBg = mainColor[shadeIndex - 2];
-            outlinedStyle.border = `1px solid ${mainColor[shadeIndex]}`
+            outlinedStyle.border = `1px solid ${mainColor[shadeIndex]}`;
+        }
+
+        if (disabled) {
+            outlinedStyle.text = neutral[7];
+            outlinedStyle.bg = neutral[4];
+            outlinedStyle.hoverText = neutral[7];
+            outlinedStyle.hoverBg = neutral[4];
+            outlinedStyle.border = `1px solid ${neutral[6]}`;
         }
 
         return outlinedStyle;
@@ -52,11 +67,17 @@ export const Button = styled.button(({
             bg: neutral[1],
             hoverText: mainColor[shadeIndex],
             hoverBg: mainColor[shadeIndex - 3],
-            border: "1px"
         };
 
         if (isActive) {
             minimalStyle.bg = mainColor[shadeIndex - 3];
+        }
+
+        if (disabled) {
+            minimalStyle.text = neutral[7];
+            minimalStyle.bg = neutral[4];
+            minimalStyle.hoverText = neutral[7];
+            minimalStyle.hoverBg = neutral[4];
         }
 
         return minimalStyle;
@@ -107,7 +128,7 @@ export const Button = styled.button(({
         font-size: ${fontSize};
 
         &:hover {
-            cursor: pointer;
+            cursor: ${disabled ? "not-allowed" : "pointer"};
             color: ${hoverText}; 
             background: ${hoverBg};
         }

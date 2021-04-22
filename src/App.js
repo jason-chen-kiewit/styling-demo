@@ -1,5 +1,5 @@
 import './App.css';
-import StyledButton from './styled-components/StyledButton/StyledButton';
+import StyledButton from './styled-components/StyledButton/';
 
 function App() {
   return (
@@ -41,7 +41,6 @@ function App() {
           startIcon="AiFillFilter"
           text="Bulk Edit"
           size="small"
-          column
         />
         <StyledButton
           activatable
@@ -50,7 +49,7 @@ function App() {
           endIcon="AiFillFilter"
           text="Bulk Filter"
           size="large"
-          column
+          disabled
         />
       </div>
       <div className="container outlined">
@@ -97,6 +96,7 @@ function App() {
           endIcon="AiFillFilter"
           text="Bulk Filter"
           size="large"
+          disabled
         />
       </div>
       <div className="container minimal">
@@ -144,16 +144,9 @@ function App() {
           endIcon="AiFillFilter"
           text="Bulk Filter"
           size="large"
+          disabled
         />
       </div>
-      {/* <StyledButton
-          activatable
-          variant="contained"
-          color="purple"
-          iconOnly="AiFillFilter"
-          round
-          text="Bulk Filter"
-        /> */}
     </div>
   );
 }
