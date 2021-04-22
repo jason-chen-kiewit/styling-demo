@@ -54,7 +54,6 @@ export const Button = styled.button(({
             outlinedStyle.bg = neutral[4];
             outlinedStyle.hoverText = neutral[7];
             outlinedStyle.hoverBg = neutral[4];
-            outlinedStyle.border = `1px solid ${neutral[6]}`;
         }
 
         return outlinedStyle;
@@ -75,9 +74,8 @@ export const Button = styled.button(({
 
         if (disabled) {
             minimalStyle.text = neutral[7];
-            minimalStyle.bg = neutral[4];
             minimalStyle.hoverText = neutral[7];
-            minimalStyle.hoverBg = neutral[4];
+            minimalStyle.hoverBg = neutral[1];
         }
 
         return minimalStyle;
