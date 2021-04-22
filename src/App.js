@@ -1,9 +1,11 @@
 import './App.css';
-import StyledButton from './styled-components/StyledButton/';
+import StyledButton from './styled-components/StyledButton/StyledButton';
+import DeleteButton from './components/DeleteButton';
 
 function App() {
   return (
     <div className="App">
+      <DeleteButton />
       <div className="container contained">
         Contained
         <StyledButton
@@ -78,7 +80,7 @@ function App() {
           activatable
           variant="outlined"
           color="green"
-          round
+          // round
           iconOnly="AiFillFilter"
         />
         <StyledButton
@@ -125,7 +127,7 @@ function App() {
           activatable
           variant="minimal"
           color="green"
-          round
+          // round
           iconOnly="AiFillFilter"
           size="large"
         />

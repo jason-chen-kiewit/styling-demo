@@ -1,5 +1,17 @@
-import { AiFillFilter, AiFillEdit, AiOutlineFilter, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { 
+    AiFillFilter, 
+    AiFillEdit, 
+    AiOutlineFilter, 
+    AiOutlineLeft, 
+    AiOutlineRight, 
+    AiOutlineClose 
+} from "react-icons/ai";
 
 export const icons = {
-    AiFillFilter, AiFillEdit, AiOutlineFilter, AiOutlineLeft, AiOutlineRight
+    AiFillFilter, 
+    AiFillEdit, 
+    AiOutlineFilter, 
+    AiOutlineLeft, 
+    AiOutlineRight, 
+    delete: AiOutlineClose
 }

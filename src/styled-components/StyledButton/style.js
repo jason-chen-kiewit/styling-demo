@@ -110,20 +110,20 @@ export const Button = styled.button(({
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: ${round ? 0 : "0.25rem 1rem"};
+        padding: ${round || iconOnly ? 0 : "0.25rem 1rem"};
 
         flex: none;
         order: 2;
         flex-grow: 0;
         margin: 0 0.5rem;
 
-        border-radius: ${round ? "50%" : "5px"};
+        border-radius: ${round ? "50%" : "0.25rem"};
 
         color: ${text};
         background: ${bg};
         border: ${border};
 
-        height: ${height};
+        height: ${height}; 
         width: ${iconOnly ? height : "auto"};
         font-size: ${fontSize};
 
