@@ -4,8 +4,14 @@ import {
     AiOutlineFilter, 
     AiOutlineLeft, 
     AiOutlineRight, 
-    AiOutlineClose 
+    AiOutlineClose,
+    // AiOutlinePlusCircle,
+    AiOutlineSave 
 } from "react-icons/ai";
+
+import { 
+    FaPlus
+} from "react-icons/fa";
 
 export const icons = {
     AiFillFilter, 
@@ -13,5 +19,7 @@ export const icons = {
     AiOutlineFilter, 
     AiOutlineLeft, 
     AiOutlineRight, 
-    delete: AiOutlineClose
+    delete: AiOutlineClose,
+    plus: FaPlus,
+    save: AiOutlineSave
 }

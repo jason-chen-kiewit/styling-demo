@@ -1,11 +1,20 @@
 import './App.css';
 import StyledButton from './styled-components/StyledButton/StyledButton';
-import DeleteButton from './components/DeleteButton';
+import Buttons from './premadeComponents/Buttons';
 
 function App() {
   return (
     <div className="App">
-      <DeleteButton />
+      <div className="container premade-buttons">
+        Premade Buttons
+        <Buttons.DeleteButton />
+        <Buttons.PlusIconButton />
+        <Buttons.EditButton />
+        <Buttons.SaveIconButton />
+        <Buttons.BackButton />
+        <Buttons.NextButton />
+      </div>
+      
       <div className="container contained">
         Contained
         <StyledButton
