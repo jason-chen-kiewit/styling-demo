@@ -8,7 +8,7 @@ export const Button = styled.button(({
     const { neutral } = colors;
     const shadeIndex = color === "neutral" ? 11 : 5;
 
-    const contained = () => {
+    const createContainedStyle = () => {
         let containedStyle = {
             text: neutral[1],
             bg: mainColor[shadeIndex],
@@ -32,7 +32,7 @@ export const Button = styled.button(({
     }
 
     // Consider using a function using the same ternary statement repeatedly
-    const outlined = () => {
+    const createOutlinedStyle = () => {
         let outlinedStyle = {
             text: neutral[12],
             bg: neutral[5],
@@ -60,7 +60,7 @@ export const Button = styled.button(({
     }
 
 
-    const minimal = () => {
+    const createMinimalStyle = () => {
         let minimalStyle = {
             text: mainColor[shadeIndex],
             bg: neutral[1],
@@ -81,7 +81,11 @@ export const Button = styled.button(({
         return minimalStyle;
     }
 
-    const variantStyleGenerators = { contained, outlined, minimal };
+    const variantStyleGenerators = { 
+        contained: createContainedStyle, 
+        outlined: createOutlinedStyle, 
+        minimal: createMinimalStyle 
+    };
 
     const sizes = {
         small: {
@@ -136,7 +140,6 @@ export const Button = styled.button(({
             margin-right: ${startIcon ? "0.5rem" : 0};
             margin-left: ${endIcon ? "0.5rem" : 0};
         }
-        
     `
 });
 
